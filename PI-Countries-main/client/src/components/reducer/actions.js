@@ -7,6 +7,9 @@ export const ERROR = 'ERROR';
 export const ORDER_CARDS = 'ORDER_CARDS';
 export const FILTER_BY_REGION = 'FILTER_BY_REGION';
 export const RESET_FILTER = 'RESET_FILTER';
+export const SEARCH_NAME = 'SEARCH_NAME';
+export const CREATE = 'CREATE';
+export const GET_ACTIVITY = 'GET_ACTIVITY';
 
 export const getCountries = () =>{
     return async function(dispatch){
@@ -37,6 +40,16 @@ export const getByName = (name) => async dispatch => {
     }
 }
 
+export const getByNameTwo =  (name) => async dispatch =>{
+    try {
+        let json = await axios.get(`//localhost:3001/countries/name?name=${name}`)
+        return dispatch({ type: SEARCH_NAME, payload: json.data })
+    } catch (error) {
+        return dispatch({ type: ERROR })
+    }
+}
+
+
 
 export const orderCards = (order) => {
     return {
@@ -51,6 +64,31 @@ export const filterByRegion = (region) => {
         payload: region
     }
 }
+
+export function postActivity (payload){
+    return async function(dispatch){
+        const apiActivity = await axios.post(
+            'http://localhost:3001/activities/', payload
+        )
+        console.log(apiActivity.data)
+        const activity = apiActivity.data;
+        dispatch({type: CREATE, payload: activity});
+    };
+
+}
+
+export const getActivities = () =>{
+    return async function(dispatch){
+        const apiActivity = await axios.get(`//localhost:3001/activities`
+            )
+        const activity = apiActivity.data;
+        dispatch({type: GET_ACTIVITY, payload: activity});
+        
+    };
+};
+    
+
+
 
 
 export const resetFilter = () => {

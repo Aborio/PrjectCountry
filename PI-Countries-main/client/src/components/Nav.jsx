@@ -8,11 +8,17 @@ export default function Nav({ onSearch, setAccess }) {
         setAccess(false);
         navigate("/");
     }
+
+
     return (
         <div className="navbar">
             <SearchBar onSearch={onSearch} />
         <button>
             <NavLink to="/about">About</NavLink>
+        </button>
+
+        <button>
+            <NavLink to="/create">Create Activity</NavLink>
         </button>
         
         <button onClick={hanldeLogout}>Logout</button>

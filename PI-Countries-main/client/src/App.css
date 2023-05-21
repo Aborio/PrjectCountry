@@ -1,10 +1,18 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+@media screen and (max-width: 600px) {
+  .item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -46,3 +54,56 @@
   flex-wrap: wrap;
   gap: 1em;
 }
+
+
+.lform{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-image: url('../public/descargaa.jpeg');
+  background-position: 50% 50%;
+  animation: spin 4s linear infinite;
+  background-size: cover;
+}
+
+.paginado{
+  height: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-color: black;
+ 
+
+}
+
+.paginado1{
+  border-color: black;
+  background-color: bisque;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.controlP{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+.data{}
+

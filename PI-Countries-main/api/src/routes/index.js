@@ -66,13 +66,14 @@ router.get('/countries/:id', async (req, res) => {
 
 router.post('/activities', async (req, res) => {
     //agregar esa actividad a un pais donde el countryID es igual
-    const {name, dificulty, duration, season, countryID} = req.body;
+    const {name, dificulty, duration, season, country} = req.body;
     try {
-        const newActivity = await createActivity({name, dificulty, duration, season, countryID});
-        res.status(201).json(newActivity);
+        const newActivity = await createActivity(name, dificulty, duration, season, country);
+        res.status(201).json('Actividad creada con exito');
     }
     catch (error) {
         res.status(400).json({error: error.message});
+        
     }
 });
 

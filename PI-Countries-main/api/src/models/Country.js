@@ -15,7 +15,7 @@ sequelize.define('country', {
     },
 
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
 
@@ -30,7 +30,7 @@ sequelize.define('country', {
     },
 
     capital: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
 

@@ -10,9 +10,7 @@ function Data(props){
     return(
         <div className="card">
             <h1>{props.name}</h1>
-            <p>Population:{props.population}</p>
             <p>Region:{props.region}</p>
-            <p>Capital:{props.capital}</p>
             <img src={props.flags} alt="flag" width="100px" height="100px"/>
             <NavLink to={`/detail/${props.id}`}><button>Ver detalle</button></NavLink>
 

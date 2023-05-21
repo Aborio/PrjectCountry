@@ -9,6 +9,7 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import { useEffect } from 'react';
 import Detail from './components/Detail';
+import Create from './components/Create';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         <Route path="/about" element={<About/>} />
         <Route path="/home" element={<Home onClose={onClose} />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/create" element={<Create />} />
       </Routes>
     </div>
   );

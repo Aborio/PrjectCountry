@@ -31,16 +31,15 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
-ActivityModel(sequelize);
-CountryModel(sequelize);
+
 // Para relacionarlos hacemos un destructuring
 const { Activity, Country } = sequelize.models;
 
 
 // Aca vendrian las relaciones
+Country.belongsToMany(Activity, { through: 'country_activity' });// crea la tabla intermedia esto funciona automaticamente, realiza una tabla llamda country_activity con las claves foraneas de cada tabla
 Activity.belongsToMany(Country, { through: 'country_activity' }); // crea la tabla intermedia
-Country.belongsToMany(Activity, { through: 'country_activity' }); // crea la tabla intermedia esto funciona automaticamente, realiza una tabla llamda country_activity con las claves foraneas de cada tabla
-
+ 
 // Product.hasMany(Reviews);
 
 module.exports = {

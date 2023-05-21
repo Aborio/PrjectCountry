@@ -48,7 +48,7 @@ export default function AllData() {
     
 
     return (
-    <div>
+    <div className="data">
         <button onClick={handleReset}>
             All
         </button>
@@ -57,7 +57,6 @@ export default function AllData() {
             <option value="desc">Descendente</option>
         </select>
         <select onChange={handleFilter}>
-            <option value="All">All</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
             <option value="Asia">Asia</option>
@@ -77,7 +76,7 @@ export default function AllData() {
         currentCountries.map(
             ({cca3,name, region,flag}) => {
                 return (
-                 <div key={cca3}>
+                 <div className="card" key={cca3}>
                     <h1>{name}</h1>   
                     <p>Region:{region}</p>
                     <img src={flag } alt="flag" width="100px" height="100px"/>
@@ -86,20 +85,6 @@ export default function AllData() {
             }
         )
         }
-
-        {/* <select onChange={handleOrder}>
-            <option value="asc">Ascendente</option>
-            <option value="desc">Descendente</option>
-        </select>
-        <select onChange={handleFilter}>
-            <option value="Africa">Africa</option>
-            <option value="Americas">Americas</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceania">Oceania</option>
-            <option value="Polar">Polar</option>
-        </select> */}
-
 
     </div>
     );

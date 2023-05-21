@@ -1,4 +1,4 @@
-import { RESET_FILTER ,GET_COUNTRIES, SEARCH, ERROR, GET_COUNTRY, ORDER_CARDS, FILTER_BY_REGION } from "./actions";
+import {GET_ACTIVITY ,CREATE ,SEARCH_NAME ,RESET_FILTER ,GET_COUNTRIES, SEARCH, ERROR, GET_COUNTRY, ORDER_CARDS, FILTER_BY_REGION } from "./actions";
 
 
 const initialState = {
@@ -6,6 +6,7 @@ const initialState = {
     sorting: [],
     allCountries: [],
     error: false,
+    actividades: [],
 }
 
 const reducer = (state = initialState, action) => {
@@ -26,10 +27,27 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 sorting: action.payload
             }
+        case SEARCH_NAME:
+            return {
+                ...state,
+                countries: action.payload
+            }
+
+        case GET_ACTIVITY:
+            return {
+                ...state,
+                actividades: action.payload
+            }
+            
         case ERROR:
             return {
                 ...state,
                 error: true
+            }
+
+        case CREATE:
+            return {
+                ...state,
             }
 
         case FILTER_BY_REGION:

@@ -9,7 +9,7 @@ export default function SearchBar() {
         setName(event.target.value);
         console.log(name)
     }
-
+    
     const handleSubmit = () => {
         if(name){
             dispatch(getByName(name));
