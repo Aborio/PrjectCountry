@@ -31,22 +31,22 @@ sequelize.define('country', {
 
     capital: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+      allowNull: true,
     },
 
     subregion: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
 
     area: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
 
     poblation: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   });
 };
