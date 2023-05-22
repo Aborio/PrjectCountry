@@ -19,7 +19,7 @@ sequelize.define('country', {
       allowNull: false,
     },
 
-    image: {
+    flag: {
       type: DataTypes.STRING,
       allowNull: false,
     },

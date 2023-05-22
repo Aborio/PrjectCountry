@@ -31,9 +31,9 @@ export const getCountry = (id) => async dispatch => {
     }
 };
 
-export const getByName = (name) => async dispatch => {
+export const getByName = (id) => async dispatch => {
     try {
-        let json = await axios.get(`//localhost:3001/countries/${name}`)
+        let json = await axios.get(`//localhost:3001/countries/${id}`)
         return dispatch({ type: SEARCH, payload: json.data })
     } catch (error) {
         return dispatch({ type: ERROR })
@@ -67,13 +67,17 @@ export const filterByRegion = (region) => {
 
 export function postActivity (payload){
     return async function(dispatch){
-        const apiActivity = await axios.post(
-            'http://localhost:3001/activities/', payload
-        )
-        console.log(apiActivity.data)
-        const activity = apiActivity.data;
+        const api = await fetch(`http://127.0.0.1:3001/activities`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        const activity = await api.json();
         dispatch({type: CREATE, payload: activity});
-    };
+
+    }
 
 }
 

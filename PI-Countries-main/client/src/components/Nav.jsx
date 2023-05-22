@@ -16,6 +16,9 @@ export default function Nav({ onSearch, setAccess }) {
         <button>
             <NavLink to="/about">About</NavLink>
         </button>
+        <button>
+            <NavLink to="/home">Home</NavLink>
+        </button>
 
         <button>
             <NavLink to="/create">Create Activity</NavLink>

@@ -4,22 +4,23 @@ export default function Datas() {
 
     
     const country = useSelector(state=>state.sorting)
+    console.log(country)
    
    
     return (
     <div>
         {
-        country.map(
-            ({cca3,name,population,region, capital,flags}) => {
+        country?.map(
+            ({id,name,population, region, capital,flag}) => {
                 return (
                  <Data
-                    key={cca3}
-                    id={cca3}
-                    name={name.common}
+                    key={id}
+                    id={id}
+                    name={name}
                     population={population}
                     region={region}
-                    capital={capital}
-                    flags={flags[0]}
+                    capital={capital[0]}
+                    flags={flag}
                     />
                 )
             }

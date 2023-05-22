@@ -20,12 +20,12 @@ const reducer = (state = initialState, action) => {
         case SEARCH:
             return {
                 ...state,
-                sorting: action.payload
+                sorting: [action.payload]
             }
         case GET_COUNTRY:
             return {
                 ...state,
-                sorting: action.payload
+                sorting: [...action.payload]
             }
         case SEARCH_NAME:
             return {
@@ -48,6 +48,7 @@ const reducer = (state = initialState, action) => {
         case CREATE:
             return {
                 ...state,
+                actividades: [...state.actividades, action.payload]
             }
 
         case FILTER_BY_REGION:

@@ -1,10 +1,9 @@
 import {useEffect} from 'react';
-import axios from 'axios';
-import { useState } from 'react';
 import {useParams} from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getCountry } from './reducer/actions';
+import Style from './modules/detail.module.css'
 
 const Detail = () => {
     const { id } = useParams();
@@ -20,15 +19,18 @@ const Detail = () => {
     return(
         <div>
                 {
-                    country.map(
-                        ({cca3,name,population,region,capital,flags}) => {
+                    country?.map(
+                        ({id,name,population,region,capital,flag, continent, area, activity}) => {
                             return(
-                                <div key={cca3}>
-                                    <h1>{name.common}</h1>
+                                <div key={id} className={Style.container}>
+                                    <h1>{name}</h1>
                                     <p>Population:{population}</p>
                                     <p>Region:{region}</p>
                                     <p>Capital:{capital}</p>
-                                    <img src={flags[0]} alt="flag" width="100px" height="100px"/>
+                                    <p>Contiente:{continent}</p>
+                                    <p>Area:{area}</p>
+                                    <p>Activity:{activity}</p>
+                                    <img src={flag} alt="flag" width="100px" height="100px" className={Style.img}/>
                                 </div>
                             )
                         }

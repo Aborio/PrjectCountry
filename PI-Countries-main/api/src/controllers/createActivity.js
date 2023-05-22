@@ -26,7 +26,7 @@ const saveCountriesToDatabase = async () => {
   try {
 
    
-    const response = await axios.get('https://restcountries.com/v3/all');
+    const response = await axios.get('https://rest-countries.up.railway.app/v3/all');
     const countries = response.data;
 
     for (const country of countries) {
@@ -38,7 +38,7 @@ const saveCountriesToDatabase = async () => {
             area: parseInt(country.area, 10),
             population: country.population,
             capital: country.capital || null,
-            image: country.flags[0],
+            flag: country.flags[0],
             subregion: country.subregion || null,
             poblation: country.population,
 
@@ -57,7 +57,7 @@ saveCountriesToDatabase();
     let countryID;
 
     if(source === 'api') {
-        const countryResponse = await axios.get(`https://restcountries.com/v3/alpha/${country}`);
+        const countryResponse = await axios.get(`https://rest-countries.up.railway.app/v3/alpha/${country}`);
         const countryData = countryResponse.data;
         countryID = countryData[0].cca3;
         console.log(countryID)

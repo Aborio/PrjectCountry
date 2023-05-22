@@ -73,13 +73,14 @@ export default function AllData() {
 
 
         {
-        currentCountries.map(
-            ({cca3,name, region,flag}) => {
+        currentCountries?.map(
+            ({id,name, continent,flag, activity}) => {
                 return (
-                 <div className="card" key={cca3}>
+                 <div className="card" key={id}>
                     <h1>{name}</h1>   
-                    <p>Region:{region}</p>
-                    <img src={flag } alt="flag" width="100px" height="100px"/>
+                    <h2>Region:{continent.slice(1, -1)}</h2>
+                    <p>Activity:{activity}</p>
+                    <img src={flag} alt="flag" width="100px" height="100px"/>
                  </div>   
                 )
             }

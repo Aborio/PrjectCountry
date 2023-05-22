@@ -15,14 +15,14 @@ const Create = () => {
     dificulty: "",
     duration: "",
     season: "",
-    country: [],
+    country: "",
   });
 
   const handleChange = (e) => {
     e.preventDefault();
     setInput({
       ...input,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value.toString(),
     });
   };
 
@@ -37,6 +37,8 @@ const Create = () => {
         season: "",
         country: [],
       });
+
+      console.log(input)
   };
 
 
@@ -52,7 +54,7 @@ const Create = () => {
 
   
   return(
-    <div>
+    <div className="formact">
       <h1>Crear Actividad</h1>
       <form onSubmit={(e)=>handleSubmit(e)}>
         <div>
@@ -92,17 +94,23 @@ const Create = () => {
         </div>
         <div>
           <label>Pais</label>
-          <select
-            name="country"
+          {/* <input 
+          type="text"
+          name="country" 
+          value={input.country}
+          onChange={(e)=>handleChange(e)}/> */}
+            <select
             value={input.country}
-            onChange={(e)=>handleChange(e)}
-          >
-            {countries?.map((e) => (
-              <option value={e.id}>{e.name}</option>
-            ))}
+            name="country"
+            onChange={(e) => handleChange(e)}
+            >
+          <option value="">Seleccione un país</option>
+          {countries.map((country) => (
+          <option value={country.id} key={country.id}>
+          {country.name}
+          </option>
+          ))}
           </select>
-
-
         </div>
 
         <button type="submit">Crear</button>
