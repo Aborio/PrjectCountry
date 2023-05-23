@@ -1,0 +1,120 @@
+.container{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	align-content: space-between;
+  padding-top: 1.5rem;
+}
+
+
+.about{
+    color: #5deef5;
+    font-size: 0.7rem;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.5ch;
+    text-align: center;
+    margin: 0.5em;
+    margin-top: 7rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    border-radius: 3rem;
+  }
+  .btn {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(to left,
+            #979797 0%,
+            #a7a7a7 8%,
+            #a7a7a7 92%,
+            #979797 100%);
+}
+
+
+.front {
+    display: block;
+    position: relative;
+    padding: 10px 25px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #9ee7ff;
+    color: #31696d;
+    background: #dddddd;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.btn:hover {
+    filter: brightness(110%);
+}
+
+.btn:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.btn:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+.btn:hover .shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.btn:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+
+.btn:focus:not(:focus-visible) {
+    outline: none;
+}
+   @keyframes ani {
+    0% {
+     background-position: 0%;
+    }
+   
+    100% {
+     background-position: 400%;
+    }
+   }
+   
+  
+.img__about{
+    width: 20%;
+    height: 90%;
+    border-radius: 3rem;
+  }

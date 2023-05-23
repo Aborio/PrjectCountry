@@ -70,6 +70,8 @@ const Create = () => {
           <input
             type="number"
             value={input.dificulty}
+            min="1"
+            max="5"
             name="dificulty"
             onChange={(e)=>handleChange(e)}
           />
@@ -83,7 +85,7 @@ const Create = () => {
             onChange={(e)=>handleChange(e)}
           />
         </div>
-        <div>
+        {/* <div>
           <label>Temporada</label>
           <input
             type="text"
@@ -91,7 +93,22 @@ const Create = () => {
             name="season"
             onChange={(e)=>handleChange(e)}
           />
+        </div> */}
+        <div>
+          <label>Temporada</label>
+          <select
+            value={input.season}
+            name="season"
+            onChange={(e) => handleChange(e)}
+          >
+            <option value="">Selecciona una temporada</option>
+            <option value="Summer">Summer</option>
+            <option value="Winter">Winter</option>
+            <option value="Spring">Spring</option>
+            <option value="Autumn">Autumn</option>
+          </select>
         </div>
+
         <div>
           <label>Pais</label>
           {/* <input 
@@ -107,9 +124,9 @@ const Create = () => {
           <option value="">Seleccione un país</option>
           {countries.map((country) => (
           <option value={country.id} key={country.id}>
-          {country.name}
+          {country.name} 
           </option>
-          ))}
+          ))}   { /*  aca generamos un mapeo para poder mostrar todos los paises, y tambien selecciona los ID para poder entrar en el POSST      */}
           </select>
         </div>
 

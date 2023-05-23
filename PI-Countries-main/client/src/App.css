@@ -129,3 +129,38 @@
 
 }
 
+.navbar{
+  margin-left: 10px;
+}
+
+.searchBar {
+  width: 18%;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-top: 10px;
+  background-color: #007bff;
+}
+
+.searchBar input {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.searchBar button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.searchBar button:hover {
+  background-color: #0056b3;
+}

@@ -10,6 +10,7 @@ export const RESET_FILTER = 'RESET_FILTER';
 export const SEARCH_NAME = 'SEARCH_NAME';
 export const CREATE = 'CREATE';
 export const GET_ACTIVITY = 'GET_ACTIVITY';
+export const FILTER_BY_ACTIVITY = 'FILTER_BY_ACTIVITY';
 
 export const getCountries = () =>{
     return async function(dispatch){
@@ -62,6 +63,13 @@ export const filterByRegion = (region) => {
     return {
         type: 'FILTER_BY_REGION',
         payload: region
+    }
+}
+
+export const filterByActivity = (activity) => {
+    return {
+        type: 'FILTER_BY_ACTIVITY',
+        payload: activity
     }
 }
 

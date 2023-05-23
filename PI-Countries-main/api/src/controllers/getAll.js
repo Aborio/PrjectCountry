@@ -4,9 +4,9 @@ const axios = require('axios');
 
 const getAll = async (req, res) => {
   try {
-    let api = await axios.get("https://rest-countries.up.railway.app/v3/all");
+    let api = await axios.get("https://rest-countries.up.railway.app/v3/all");  //aca generamos la api, y despues estamos generando la copia en la base de datos
     api = api.data?.map((e) => {
-      console.log(e)
+  
       return {
         id: e.cca3,
         name: e.name.common,

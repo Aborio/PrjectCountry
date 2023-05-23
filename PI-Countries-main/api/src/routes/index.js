@@ -49,10 +49,12 @@ router.get('/countries/:id', async (req, res) => {
             
             if(!id || id.length > 3) {
                 res.status(400).json({error: 'No se ingreso un id o es invalido'});
+                return;
             }
             const country = await getCountryById(id, source);
             if(!country) {
                 res.status(400).json({error: error.message});
+                return;
             }
             res.status(200).json(country);
 
