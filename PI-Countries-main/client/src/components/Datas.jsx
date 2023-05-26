@@ -19,7 +19,7 @@ export default function Datas() {
                     name={name}
                     population={population}
                     region={region}
-                    capital={capital[0]}
+                    capital={capital}
                     flags={flag}
                     />
                 )

@@ -20,7 +20,7 @@ const Detail = () => {
         <div>
                 {
                     country?.map(
-                        ({id,name,population,region,capital,flag, continent, area, activity}) => {
+                        ({id,name,population,region,capital,flag, continent, area}) => {
                             return(
                                 <div key={id} className={Style.container}>
                                     <h1>{name}</h1>
@@ -29,7 +29,6 @@ const Detail = () => {
                                     <p>Capital:{capital}</p>
                                     <p>Contiente:{continent}</p>
                                     <p>Area:{area}</p>
-                                    <p>Activity:{activity}</p>
                                     <img src={flag} alt="flag" width="100px" height="100px" className={Style.img}/>
                                 </div>
                             )

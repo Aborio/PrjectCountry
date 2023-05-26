@@ -1,10 +1,11 @@
+
 import {FILTER_BY_ACTIVITY ,GET_ACTIVITY ,CREATE ,SEARCH_NAME ,RESET_FILTER ,GET_COUNTRIES, SEARCH, ERROR, GET_COUNTRY, ORDER_CARDS, FILTER_BY_REGION } from "./actions";
 
 
 const initialState = {
     countries: [],
     sorting: [],
-    allCountries: [],
+    // allCountries: [],
     error: false,
     actividades: [],
 }
@@ -15,7 +16,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 countries: action.payload,
-                allCountries: action.payload
+                // allCountries: action.payload
             }
         case SEARCH:
             return {
@@ -30,7 +31,7 @@ const reducer = (state = initialState, action) => {
         case SEARCH_NAME:
             return {
                 ...state,
-                countries: [...action.payload]
+                countries: [action.payload]
             }
 
         case GET_ACTIVITY:
@@ -53,24 +54,37 @@ const reducer = (state = initialState, action) => {
 
         case FILTER_BY_REGION:
             const allCountries = [...state.countries]
-            console.log(allCountries)
+             console.log(allCountries)
             // const filtered = action.payload === 'All' ?
             //     allCountries :
             //     allCountries.filter(el =>
-            //     el.continent === action.payload)                 este caso funciona con la api de antes, la cual funcionaba con la acual pero al principio.
+             //    el.continent === action.payload)                 
             //     console.log(filtered)
 
-            const filtered = action.payload === 'All' ?
-            allCountries :
-            allCountries.filter(el => {
-            const formattedPayload = action.payload.toLowerCase(); // Convertir a minúsculas
-            const formattedContinent = el.continent.replace(/[{}]/g, '').toLowerCase(); // Eliminar las llaves y convertir a minúsculas
-            return formattedContinent === formattedPayload;
-            });
-            return {
-                ...state,
-                countries: filtered
-            }
+            // const filtered = action.payload === 'All' ?
+            // allCountries :
+            // allCountries.filter(el => {
+            // const formattedPayload = action.payload.toLowerCase(); // Convertir a minúsculas
+            // const formattedContinent = el.continent.replace(/[{}]/g, '').toLowerCase(); // Eliminar las llaves y convertir a minúsculas
+            // return formattedContinent === formattedPayload;
+
+
+
+               if (action.payload === 'All') {
+                   return {...state, countries: allCountries};
+                  }
+                  console.log(action.payload)
+
+              const filterCountry = allCountries.filter(el => el.continent === action.payload)
+              console.log(filterCountry)
+                
+            
+              return {
+                  ...state,
+                 countries: filterCountry
+              }
+
+             
 
         case FILTER_BY_ACTIVITY:
             const allCountriesTwo = [...state.countries]

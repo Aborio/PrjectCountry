@@ -1,6 +1,7 @@
 const axios = require("axios");
 const { Country, Activity } = require("../db");
 
+
 const getCountryById = async (id) => {
     try {
         let api = await axios.get(`https://rest-countries.up.railway.app/v3/alpha/${id}`);  // aca tenemos todos los datos de la api, poniendo el data[0] obtenemos el JSON puro, y de ahi lo trabajamos

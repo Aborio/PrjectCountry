@@ -2,6 +2,7 @@ const {Country, Activity} = require('../db.js');
 const axios = require('axios');
 
 
+
 const getAll = async (req, res) => {
   try {
     let api = await axios.get("https://rest-countries.up.railway.app/v3/all");  //aca generamos la api, y despues estamos generando la copia en la base de datos
@@ -21,9 +22,9 @@ const getAll = async (req, res) => {
 
     let bdd = await Country.findAll();
     if (!bdd.length) {
-      await Country.bulkCreate(api);
+      await Country.bulkCreate(api); // bulkcreate genera muchos datos en la base de datos
     }
-    let db = await Country.findAll({
+    let db = await Country.findAll({ //aca encuentra el pais, lo busca en la base de datos y le agrega la actividad mediante el atributo en relacion, en este caso name
       include: {
         model: Activity,
         attributes: ["name"],
@@ -33,7 +34,7 @@ const getAll = async (req, res) => {
       },
     });
 
-    db = db.map((e) => {
+    db = db.map((e) => {   // entonces aca se mapea la base de datos, y se le agrega la actividad
 
       return {
         id: e.id,

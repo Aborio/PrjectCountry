@@ -1,5 +1,6 @@
 const { Activity, Country } = require('../db');
 const axios = require('axios');
+const data = require('../../countries.json')
 
 // const createActivity = async (name, dificulty, duration, season, countryID) => {
     

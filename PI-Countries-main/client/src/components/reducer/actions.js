@@ -59,17 +59,17 @@ export const orderCards = (order) => {
     }
 }
 
-export const filterByRegion = (region) => {
+export const filterByRegion = (continent) => {
     return {
         type: 'FILTER_BY_REGION',
-        payload: region
+        payload: continent
     }
 }
 
-export const filterByActivity = (activity) => {
+export const filterByActivity = (payload) => {
     return {
         type: 'FILTER_BY_ACTIVITY',
-        payload: activity
+        payload
     }
 }
 

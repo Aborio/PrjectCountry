@@ -15,13 +15,7 @@ export default function Nav({ onSearch, setAccess }) {
         <div className="navbar">
             <SearchBar onSearch={onSearch} />
        
-            <NavLink to="/about">
-            <button className={Styles.btn} >
-                        <span className={Styles.shadow}></span>
-                        <span className={Styles.edge}></span>
-                        <span className={Styles.front}>About</span>
-                    </button>
-                    </NavLink>
+
         
         
             <NavLink to="/home">
@@ -42,6 +36,14 @@ export default function Nav({ onSearch, setAccess }) {
                         <span className={Styles.front}>Create Activity</span>
                     </button>
                 </NavLink>
+
+                    <NavLink to="/about">
+                    <button className={Styles.btn} >
+                        <span className={Styles.shadow}></span>
+                        <span className={Styles.edge}></span>
+                        <span className={Styles.front}>About</span>
+                    </button>
+                    </NavLink>
         
     
                 <button onClick={hanldeLogout} className={Styles.btn} >

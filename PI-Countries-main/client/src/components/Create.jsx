@@ -130,7 +130,7 @@ const Create = () => {
           </select>
         </div>
 
-        <button type="submit">Crear</button>
+        <button type="submit" disabled={!input.country || !input.season || !input.duration || !input.name || !input.dificulty}>Crear</button>
 
       </form>
 
